@@ -46,7 +46,7 @@ namespace GerenciamentoVendas.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutOportunidade(int id, Oportunidade oportunidade)
         {
-            if (id != oportunidade.CNPJ)
+            if (id != oportunidade.Id)
             {
                 return BadRequest();
             }
@@ -77,11 +77,18 @@ namespace GerenciamentoVendas.Controllers
         [HttpPost]
         public async Task<ActionResult<Oportunidade>> PostOportunidade(Oportunidade oportunidade)
         {
+
+            var informacoesOportunidades = await oportunidade.ObterInformacoes();
+
+            //informacoesOportunidades.cnpj_raiz;
+            int regiaoId = informacoesOportunidades.Estabelecimento.Estado.GetRegiaoId();
+
+            /*_context.Usuario.(Regiao=regiaoId)*/ // Query de filtrar o usuario por regiao e tem que ser igual ao região id
             _context.Oportunidade.Add(oportunidade);
             await _context.SaveChangesAsync();
 
             //return CreatedAtAction("GetOportunidade", new { id = oportunidade.CNPJ }, oportunidade);
-            return CreatedAtAction(nameof(GetOportunidade), new { id = oportunidade.CNPJ }, oportunidade);
+            return CreatedAtAction(nameof(GetOportunidade), new { id = oportunidade.Id }, oportunidade);
         }
 
         // DELETE: api/Oportunidades/5
@@ -102,7 +109,7 @@ namespace GerenciamentoVendas.Controllers
 
         private bool OportunidadeExists(int id)
         {
-            return _context.Oportunidade.Any(e => e.CNPJ == id);
+            return _context.Oportunidade.Any(e => e.Id == id);
         }
     }
 }

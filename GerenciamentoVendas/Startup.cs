@@ -13,6 +13,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using GerenciamentoVendas.Models;
+using System.Net.Http;
 
 namespace GerenciamentoVendas
 {
@@ -59,5 +60,6 @@ namespace GerenciamentoVendas
                 endpoints.MapControllers();
             });
         }
+
     }
 }

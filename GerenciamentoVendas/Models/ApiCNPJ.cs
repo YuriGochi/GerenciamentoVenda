@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -10,8 +11,10 @@ namespace GerenciamentoVendas.Models
     {
         [Key]
         public int Id { get; set; }
-        public Estado Estado { get; set; }
+        [JsonProperty("cnpj_raiz")]
+        public string CnpjRaiz { get; set; }
+        [JsonProperty("razao_social")]
         public string RazaoSocial { get; set; }
-        public string DescricaoAtividadePrincipal { get; set; }
+        public Estabelecimento Estabelecimento { get; set; }
     }
 }
