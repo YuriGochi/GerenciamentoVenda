@@ -57,6 +57,30 @@ Analisei como essa api pública funcionava e precisava então passar um cnpj par
 
 ![image](https://user-images.githubusercontent.com/78967490/184721225-7830b5c1-e382-4e06-ace2-eae8cd308721.png)
 
+Agora eu precisava obter alguns dados desse JSON gerado por esse GET, então criei um método dentro de Oportunidade para obter essas informações direto do CNPJ que eu cadastrei a oportunidade
+
+![image](https://user-images.githubusercontent.com/78967490/184721640-296a8453-a14f-43b6-9ae1-c680b2c8f0df.png)
+
+Fui então para o método POST da oportunidade para retornar todos esses dados logo quando eu cadastrasse a oportunidade
+
+![image](https://user-images.githubusercontent.com/78967490/184721907-a35b3172-b87e-4564-8909-65c69b225520.png)
+
+Mas um dos dados mais importante é o dado do Estado
+
+![image](https://user-images.githubusercontent.com/78967490/184722010-ad2cc9c0-12a6-4367-aced-561593306283.png)
+
+Eu preciso desse ibge_id, para pegar o primeiro caractere e associar a região, e para isso criei uma viriável dentro desse método POST
+
+![image](https://user-images.githubusercontent.com/78967490/184722170-6b024dc1-4245-4907-baf5-0338f34c4347.png)
+
+Dentro dessa variável eu chamo o método que eu criei no modelo Estado
+
+![image](https://user-images.githubusercontent.com/78967490/184722404-4feaa837-c036-4d8f-8cbf-f1443f6d1c88.png)
+
+Que me retorna exatamente o número da região 
+
+![image](https://user-images.githubusercontent.com/78967490/184722303-eb15507a-0c8a-404c-9305-bac9f0c91b4a.png)
+
 
 
 
