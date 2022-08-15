@@ -14,9 +14,9 @@ namespace GerenciamentoVendas.Models
         [JsonProperty("ibge_id")]
         public int IbgeId { get; set; }
 
-        public int GetRegiaoId()
+        public string GetRegiaoId()
         {
-            var query = IbgeId.ToString()[0];//retornar o id da região em int pegando o ibge id e o primeiro caractere pq define a regiao
+            var query = IbgeId.ToString().Substring(0, 1);//retornar o id da região em int pegando o ibge id e o primeiro caractere pq define a regiao
             return query;
         }
     }

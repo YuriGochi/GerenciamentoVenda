@@ -81,9 +81,12 @@ namespace GerenciamentoVendas.Controllers
             var informacoesOportunidades = await oportunidade.ObterInformacoes();
 
             //informacoesOportunidades.cnpj_raiz;
-            int regiaoId = informacoesOportunidades.Estabelecimento.Estado.GetRegiaoId();
+            string regiaoId = informacoesOportunidades.Estabelecimento.Estado.GetRegiaoId();
 
-            /*_context.Usuario.(Regiao=regiaoId)*/ // Query de filtrar o usuario por regiao e tem que ser igual ao região id
+            //_context.Usuario
+            //    .Include("RegiaoResponsavel")
+            //    .Where(o => o.RegiaoResponsavel = regiaoId); // Query de filtrar o usuario por regiao e tem que ser igual ao região id
+
             _context.Oportunidade.Add(oportunidade);
             await _context.SaveChangesAsync();
 
