@@ -81,6 +81,6 @@ Que me retorna exatamente o número da região
 
 ![image](https://user-images.githubusercontent.com/78967490/184722303-eb15507a-0c8a-404c-9305-bac9f0c91b4a.png)
 
-
+Esse é um ótimo teste e fiquei extramente contente de ter tentado, infelizmente não consegui entregar finalizado, ainda há regras de negócio para entrar, refatoração do código e também meu próximo passo era incluir o banco de dados seguindo esse artigo https://www.macoratti.net/17/05/efcore_dbf1.htm.
 
 
